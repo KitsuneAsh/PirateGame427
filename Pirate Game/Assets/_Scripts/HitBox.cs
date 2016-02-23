@@ -5,8 +5,8 @@ public class HitBox : MonoBehaviour {
 
     private Rigidbody rb;
 
-    [SerializePrivateVariables]
-    int DamageValue;
+    [SerializeField]
+    float DamageValue;
     
 
 	// Use this for initialization
@@ -18,11 +18,11 @@ public class HitBox : MonoBehaviour {
 	
 	}
     
-    void OnCollision( GameObject other) {
-        Debug.Log(gameObject.name + " has hit " + other.name);
-        if (other.GetComponent<Health>())
+    void OnCollisionEnter( Collision other) {
+        //Debug.Log(gameObject.name + " has hit " + other.gameObject.name);
+        if (other.gameObject.GetComponent<Health>())
         {
-            Health TargetHealth = other.GetComponent<Health>();
+            Health TargetHealth = other.gameObject.GetComponent<Health>();
             TargetHealth.Damage(DamageValue);
         }
     }

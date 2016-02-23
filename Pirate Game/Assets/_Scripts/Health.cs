@@ -4,9 +4,9 @@ using System.Collections;
 public class Health : MonoBehaviour {
 
     [SerializeField]
-    private int CurrentHealthValue;
+    private float CurrentHealthValue;
     [SerializeField]
-    private int MaxHealthValue = 100;
+    private float MaxHealthValue = 100;
 
     //private int health 
     //{
@@ -27,31 +27,38 @@ public class Health : MonoBehaviour {
         CurrentHealthValue = MaxHealthValue;
 	}
 
-    public int GetHealth()
+    public float GetHealth()
     {
         return CurrentHealthValue;
     }
-    public int GetMaxHealth()
+    public float GetMaxHealth()
     {
         return MaxHealthValue;
     }
 
     //Unit takes Damage
-    public void Damage( int x)
+    public void Damage( float x)
     {
-        CurrentHealthValue -= x;
-        Debug.Log(gameObject.name + " has been DAMAGED for " + x + "!" );
+        if (CurrentHealthValue > 0)
+        {
+            CurrentHealthValue -= x;
+            Debug.Log(gameObject.name + " has been DAMAGED for " + x + "!");
+            if (CurrentHealthValue <= 0)
+            {
+                Debug.Log(gameObject.name + " + no Longer has any health!");
+            }
+        }
     }
 
     //Unit Heals Damage
-    public void Heal(int x)
+    public void Heal(float x)
     {
         CurrentHealthValue += x;
         Debug.Log(gameObject.name + " has been HEALED for " + x + "!");
     }
 
     //Units Maximum health increases
-    public void ChangeMax(int x)
+    public void ChangeMax(float x)
     {
         MaxHealthValue += x;
         Debug.Log(gameObject.name + " 's Max health as INCREASED by " + x + "!");
