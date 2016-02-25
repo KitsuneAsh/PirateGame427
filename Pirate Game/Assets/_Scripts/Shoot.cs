@@ -24,7 +24,7 @@ public class Shoot : MonoBehaviour {
         {
             NextFire = Time.time + RateOfFire;
             //GameObject clone = Instantiate(Projectile, ProjectileSpawn.position, ProjectileSpawn.rotation) as GameObject; //Use This code if you need a reference to the shot you fired?
-            Instantiate(Ammo, transform.position, Quaternion.Euler(0, 0, 0));
+            Instantiate(Ammo, transform.position, transform.rotation);
         }
 	}
 

@@ -7,12 +7,16 @@ public class Melee : MonoBehaviour {
     float SwingSpeed = 1;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+    {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
         gameObject.transform.Rotate(Vector3.down * SwingSpeed * Time.deltaTime);
 	}
+
+    
 }
+
