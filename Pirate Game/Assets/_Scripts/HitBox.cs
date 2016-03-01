@@ -6,7 +6,7 @@ public class HitBox : MonoBehaviour {
     private Rigidbody rb;
 
     [SerializeField]
-    float DamageValue;
+    float DamageValue = 0;
     
 
 	// Use this for initialization
